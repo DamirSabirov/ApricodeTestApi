@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    // Получение всех видеоигр
+    async function GetGames() {
+        // отправляет запрос и получаем ответ
+        const response = await fetch("/api/games", {
+            method: "GET",
+            headers: { "Accept": "application/json" }
+        });
+        // если запрос прошел нормально
+        if (response.ok === true) {
+            // получаем данные
+            const games = await response.json();
+            let rows = document.querySelector("tbody");
+            games.forEach(game => {
+                // добавляем полученные элементы в таблицу
+                rows.append(row(game));
+            });
+        }
+    }
+    
+</script>

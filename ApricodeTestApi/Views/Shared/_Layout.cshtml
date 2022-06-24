@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Тестовое задание для компании Apricode</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="text-center">
+        <p><h2>Тестовое задание для компании Apricode</h2></p> @*Шапка сайта*@
+    </div>
+
+    <div class="text-center border-top">
+        <p><h2>Добавить новую видеоигру/Изменить видеоигру</h2></p>     @*Добавление или изменение видеоигры*@
+        <div id="errors" class="alert alert-danger" style="display:none;"></div>
+        <form name="gameForm">
+            <input type="hidden" name="id" value="0" />
+            <div class="form-group" style="width: 25%; margin-left: auto; margin-right:auto">
+                <label for="name">Название видеоигры:</label>
+                <input class="form-control" name="name" />
+            </div>
+            <div class="form-group" style="width: 25%; margin-left: auto; margin-right:auto">
+                <label for="developer">Разработчик видеоигры:</label>
+                <input class="form-control" name="developer" />
+            </div>
+            <div class="form-group" style="width: 25%; margin-left: auto; margin-right:auto">
+                <label for="genre">Жанр видеоигры:</label>
+                <input class="form-control" name="genre" />
+            </div>
+            <div class="panel-body">
+                <button type="submit" id="submit" class="btn btn-primary">Сохранить</button>
+                <a id="reset" class="btn btn-primary">Сбросить</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="text-center">
+        <p><h2>Выбор жанра видеоигры</h2></p>   @*Навигация по жанрам*@
+        <input type="button" value="Platform" onclick="location.href='@Url.Action("Platform", "Home")'" />
+        <input type="button" value="Racing" onclick="location.href='@Url.Action("Racing", "Home")'" />
+        <input type="button" value="Strategy" onclick="location.href='@Url.Action("Strategy", "Home")'" />
+        <input type="button" value="Arcade" onclick="location.href='@Url.Action("Arcade", "Home")'" />
+        <input type="button" value="Все игры" onclick="location.href='@Url.Action("Index", "Home")'" />
+    </div>
+
+    <div class="text-center">
+        <p><h2>Список видеоигр</h2></p>     @*Список видеоигр*@
+        <table class="table table-striped table-condensed table-bordered" style="width: 50%; margin-left: auto; margin-right: auto">
+            <thead>
+                <tr>
+                    <td><b>Название</b></td>
+                    <td><b>Разработчик</b></td>
+                    <td><b>Жанр</b></td>
+                    <td><b>Действия</b></td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @*Получение одной видеоигры*@
+    <script src="@Url.Content("~/Scripts/GetGame.js")"></script>
+
+    @*Добавление видеоигры*@
+    <script src="@Url.Content("~/Scripts/CreateGame.js")"></script>
+
+    @*Изменение видеоигры*@
+    <script src="@Url.Content("~/Scripts/EditGame.js")"></script>
+
+    @*Удаление видеоигры*@
+    <script src="@Url.Content("~/Scripts/DeleteGame.js")"></script>
+
+    @*Сброс формы*@
+    <script src="@Url.Content("~/Scripts/Reset.js")"></script>
+
+    @*Создание строки для таблицы*@
+    <script src="@Url.Content("~/Scripts/Row.js")"></script>
+
+    @*Сброс значений и отправка формы*@
+    <script src="@Url.Content("~/Scripts/Form.js")"></script>
+
+    @*Загрузка видеоигр*@
+    <script src="@Url.Content("~/Scripts/GetGames.js")"></script>
+
+    <footer class="border-top footer text-muted">
+        <div class="text-center">
+            2022 - Damir Sabirov
+        </div>
+    </footer>
+</body>
+</html>
